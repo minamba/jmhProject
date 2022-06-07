@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Serilog.AspNetCore" Version="5.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.3.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Filters" Version="7.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Firebase\" />
+    <Folder Include="Infrastructure\" />
+    <Folder Include="Logs\" />
+    <Folder Include="Request\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Dal\Quizz.jmh.Dal.csproj" />
+    <ProjectReference Include="..\Domain\Quizz.jmh.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
