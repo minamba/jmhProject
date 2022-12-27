@@ -23,5 +23,30 @@ namespace Quizz.jmh.Domain.Services
         {
             return await _userRepository.GetUsersAsync();
         }
+
+        public async Task<User> ReplaceAllUserFieldsAsync(string id)
+        {
+            return await _userRepository.ReplaceAllUserFieldsAsync(id);
+        }
+
+        public async Task<User> UpdateUserAsync(string id, User user)
+        {
+            return await _userRepository.UpdateUserAsync(id, user);
+        }
+
+        public async Task<User> DeleteUserAsync(string id)
+        {
+            return await _userRepository.DeleteUserAsync(id);
+        }
+
+        public async Task<User> GetUserByIdUserAsync(string id)
+        {
+            return await _userRepository.GetUserByIdUserAsync(id);
+        }
+
+        public async Task<User> AddUserAsync(User user)
+        {
+            return await _userRepository.AddUserAsync(user);
+        }
     }
 }

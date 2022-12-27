@@ -19,7 +19,6 @@ namespace Quizz.jmh.Api.SwaggerExamples
                 LevelId = "eza321eza",
                 Password = "xxxxxxx"
             }
-
         };
     }
 }

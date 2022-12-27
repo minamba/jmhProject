@@ -17,7 +17,6 @@ namespace Quizz.jmh.Tests
         private readonly UserController _userController;
         private readonly IUserService _userService;
 
-
         public UserControllerTest()
         {
             _userService = Substitute.For<IUserService>();
@@ -28,8 +27,7 @@ namespace Quizz.jmh.Tests
         [Theory, AutoData]
         public async Task Should_Return_200_When_Get_Users_Return_OK(IEnumerable<User> users)
         {
-            _userService.GetUsersAsync().Returns(users);
-                
+            _userService.GetUsersAsync().Returns(users);                
             var result = await _userController.GetUserAsync();
             Check.That(result).IsInstanceOf<OkObjectResult>();
         }
