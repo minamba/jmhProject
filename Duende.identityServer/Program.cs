@@ -21,6 +21,26 @@ builder.Services.AddIdentityServer(options =>
   .AddInMemoryApiScopes(Config.ApiScopes)
   .AddInMemoryIdentityResources(Config.IdentityResources);
 
+
+//builder.Services.AddAuthentication(
+//    options =>
+//    {
+//        options.DefaultScheme = "cookie";
+//        options.DefaultChallengeScheme = "oidc";
+//    }).AddCookie("cookie")
+//    .AddOpenIdConnect("oidc", options =>
+//     {
+//         options.Authority = builder.Configuration["InteractiveServiceSettings:AuthorityUrl"];
+//         options.ClientId = builder.Configuration["InteractiveServiceSettings:ClientId"];
+//         options.ClientSecret = builder.Configuration["InteractiveServiceSettings:ClientSecret"];
+//         options.Scope.Add(builder.Configuration["InteractiveServiceSettings:Scope:0"]);
+
+//         options.ResponseType = "code";
+//         options.UsePkce = true;
+//         options.ResponseMode = "query";
+//         options.SaveTokens = true;
+//     });
+
 var app = builder.Build();
 app.UseIdentityServer();
 //app.MapGet("/", () => "Hello World!");

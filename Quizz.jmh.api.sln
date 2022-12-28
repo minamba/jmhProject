@@ -11,8 +11,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quizz.jmh.Domain", "Domain\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quizz.jmh.Tests", "Quizz.jmh.Tests\Quizz.jmh.Tests.csproj", "{D8C9724A-3127-4BE7-A673-23092CEB8281}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpeniddictServer", "OpeniddictServer\OpeniddictServer.csproj", "{8CB746C5-F202-4B4F-B255-5D90587CC400}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Duende.Server", "Duende.identityServer\Duende.Server.csproj", "{D9A22398-55AF-40EA-9BD0-60CA51B2A53B}"
 EndProject
 Global
@@ -37,10 +35,6 @@ Global
 		{D8C9724A-3127-4BE7-A673-23092CEB8281}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D8C9724A-3127-4BE7-A673-23092CEB8281}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D8C9724A-3127-4BE7-A673-23092CEB8281}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8CB746C5-F202-4B4F-B255-5D90587CC400}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8CB746C5-F202-4B4F-B255-5D90587CC400}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8CB746C5-F202-4B4F-B255-5D90587CC400}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8CB746C5-F202-4B4F-B255-5D90587CC400}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D9A22398-55AF-40EA-9BD0-60CA51B2A53B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D9A22398-55AF-40EA-9BD0-60CA51B2A53B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D9A22398-55AF-40EA-9BD0-60CA51B2A53B}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -14,16 +14,16 @@ namespace Quizz.jmh.Api.Controllers
         public async Task<IActionResult> GetToken()
         {
             var client = new HttpClient();
-            var disco = await client.GetDiscoveryDocumentAsync("https://localhost:7025/");
+            var disco = await client.GetDiscoveryDocumentAsync("https://localhost:5443/");
             if (! disco.IsError)
             {
                 var tokenResponse = await client.RequestClientCredentialsTokenAsync(new ClientCredentialsTokenRequest
                 {
                     Address = disco.TokenEndpoint,
 
-                    ClientId = "JmhClient",
-                    ClientSecret = "secret",
-                    Scope = "JmhApi"
+                    ClientId = "m2m.client",
+                    ClientSecret = "511536EF-F270-4058-80CA-1C89C192F69A",
+                    Scope = "jmh.api.read"
                 });
 
 

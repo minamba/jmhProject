@@ -55,11 +55,17 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>()
     .AddRoles<IdentityRole>()
     .AddDefaultTokenProviders();
 
+//builder.Services.AddCors(c =>
+//{
+//    c.AddPolicy("CorsPolicy", options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+//});
+
 
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "Jmh.API", Version = "v1" });
 });
+
 
 builder.Services.AddAuthentication("Bearer")
     .AddJwtBearer("Bearer", options =>
@@ -73,7 +79,6 @@ builder.Services.AddAuthentication("Bearer")
         //    ValidateAudience = false,
         //};
     });
-
 
 builder.Services.AddAuthorization(options =>
 {
