@@ -66,33 +66,49 @@ export const Navbar = () => {
   );
 };
 
-export const List = () => {
+export const List = (props) => {
+  const { datas } = props;
+  const users = datas;
   return (
     <div className="">
-      <table className="table table-responsive-sm table-striped table-hover">
+      <table className="table table-responsive-sm table-striped table-hover ">
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Age</th>
-            <th>Gender</th>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Pseudo</th>
+            <th>Sexe</th>
+            <th>Niveau</th>
+            <th>Mail</th>
+            <th>Rôle</th>
+            <th>Modifier</th>
+            <th>Supprimer</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Anom</td>
-            <td>19</td>
-            <td>Male</td>
-          </tr>
-          <tr>
-            <td>Megha</td>
-            <td>19</td>
-            <td>Female</td>
-          </tr>
-          <tr>
-            <td>Subham</td>
-            <td>25</td>
-            <td>Male</td>
-          </tr>
+          {users.map((user, index) => {
+            return (
+              <tr key={index}>
+                <td>{user.firstName}</td>
+                <td>{user.lastName}</td>
+                <td>{user.pseudonym}</td>
+                <td>{user.sexe}</td>
+                <td>{user.level}</td>
+                <td>{user.mail}</td>
+                <td>{user.role}</td>
+                <td>
+                  <button type="button" class="btn btn-warning">
+                    <i class="fa-solid fa-pen"></i>
+                  </button>
+                </td>
+                <td>
+                  <button type="button" class="btn btn-danger">
+                    <i class="fa-solid fa-xmark"></i>
+                  </button>
+                </td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </div>

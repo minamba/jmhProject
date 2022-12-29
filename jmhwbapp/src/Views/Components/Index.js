@@ -7,7 +7,7 @@ const App = () => {
   return (
     <Fragment>
       <Navbar />
-      <Home />
+      <Home list={list} />
     </Fragment>
   );
 };

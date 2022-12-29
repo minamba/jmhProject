@@ -1,8 +1,8 @@
 import React from "react";
 import { List } from "../../Components/index";
 
-export const Home = () => {
-  //   const { list } = props;
+export const Home = (props) => {
+  const { list } = props;
   return (
     <div className="container mt-5">
       <div>
@@ -12,7 +12,7 @@ export const Home = () => {
         </h1>
       </div>
       <div className="row">
-        <List />
+        <List datas={list} />
       </div>
     </div>
   );
