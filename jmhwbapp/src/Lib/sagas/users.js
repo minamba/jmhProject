@@ -12,20 +12,17 @@ import * as api from "../../Api/users";
 function* getUsers() {
   try {
     const result = yield call(api.getUsers); //call est une promess, quoi qu'il arrive, quand il recevra une information il l'a mettre dans result
-    //console.log(result);
-
-    yield put(
-      actions.getUsersSuccess({
-        items: result.data.data,
-      })
-    );
+    // debugger;
+    yield put(actions.getUsersSuccess({ users: result.data.users }));
   } catch (e) {
+    // debugger;
     yield put(
       actions.usersError({
         error: "An error occured when trying to get users ",
       })
     );
   }
+  return true;
 }
 
 // function* createUser(action) {

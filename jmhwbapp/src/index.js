@@ -5,6 +5,10 @@ import "./Styles/index.css";
 import { AppContainer } from "./Views/Containers/index";
 import { Provider } from "react-redux";
 import store from "./Lib/store";
+import axios from "axios";
+
+axios.defaults.withCredentials = false;
+axios.defaults.baseURL = "https://localhost:7067";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

@@ -1,11 +1,12 @@
 import React, { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 export const Navbar = () => {
   return (
-    <nav class="navbar navbar-light bg-light">
-      <div class="container-fluid">
-        <a class="navbar-brand">Navbar</a>
+    <nav className="navbar navbar-light bg-light">
+      <div className="container-fluid">
+        <a className="navbar-brand">Navbar</a>
       </div>
     </nav>
   );
@@ -18,9 +19,9 @@ export const List = (props) => {
     <Fragment>
       <div>
         <div>
-          <form class="col-4 align-content-start mb-2">
+          <form className="col-4 align-content-start mb-2">
             <input
-              class="form-control me-2"
+              className="form-control me-2"
               type="search"
               placeholder="Rechercher"
               aria-label="Search"

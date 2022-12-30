@@ -67,6 +67,13 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 
+
+//services cors
+builder.Services.AddCors(p => p.AddPolicy("corsapp", builder =>
+{
+    builder.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();
+}));
+
 builder.Services.AddAuthentication("Bearer")
     .AddJwtBearer("Bearer", options =>
     {
@@ -105,7 +112,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-
+app.UseCors("corsapp");
 app.UseSerilogRequestLogging();
 app.UseHttpsRedirection();
 
