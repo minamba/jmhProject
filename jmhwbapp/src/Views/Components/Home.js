@@ -1,8 +1,8 @@
 import React from "react";
-import { List } from "../../Components/index";
+import { List, SideMenu } from "../../Components/index";
 
 export const Home = (props) => {
-  const { list } = props;
+  const { list, loadMenuItem, menuItem, filterResults, setIsFiltering } = props;
   return (
     <div className="container mt-5">
       <div>
@@ -12,7 +12,16 @@ export const Home = (props) => {
         </h1>
       </div>
       <div className="row">
-        <List datas={list} />
+        <div class="container-fluid">
+          <div class="row flex-nowrap">
+            <SideMenu loadMenuItem={loadMenuItem} menuItem={menuItem} />
+            <List
+              datas={list}
+              filterResults={filterResults}
+              setIsFiltering={setIsFiltering}
+            />
+          </div>
+        </div>
       </div>
     </div>
   );
