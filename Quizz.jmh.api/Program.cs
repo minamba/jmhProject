@@ -55,11 +55,6 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>()
     .AddRoles<IdentityRole>()
     .AddDefaultTokenProviders();
 
-//builder.Services.AddCors(c =>
-//{
-//    c.AddPolicy("CorsPolicy", options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
-//});
-
 
 builder.Services.AddSwaggerGen(c =>
 {
@@ -69,10 +64,11 @@ builder.Services.AddSwaggerGen(c =>
 
 
 //services cors
-builder.Services.AddCors(p => p.AddPolicy("corsapp", builder =>
-{
-    builder.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();
-}));
+//builder.Services.AddCors(p => p.AddPolicy("corsapp", builder =>
+//{
+//    builder.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();
+//}));
+builder.Services.AddCors();
 
 builder.Services.AddAuthentication("Bearer")
     .AddJwtBearer("Bearer", options =>
@@ -81,16 +77,20 @@ builder.Services.AddAuthentication("Bearer")
         options.Audience = "Quizz.jmh.api";
         options.TokenValidationParameters.ValidTypes = new[] { "at+jwt" };
 
+
+        //options.BackchannelHttpHandler = new HttpClientHandler { ServerCertificateCustomValidationCallback };
         //options.TokenValidationParameters = new TokenValidationParameters
         //{
         //    ValidateAudience = false,
         //};
     });
 
-builder.Services.AddAuthorization(options =>
-{
-    options.AddPolicy("ClientIdPolicy", policy => policy.RequireClaim("client_id", "jmhWeb.client"));
-});
+//builder.Services.AddAuthorization(options =>
+//{
+//    options.AddPolicy("ClientIdPolicy", policy => policy.RequireClaim("client_id", "jmhWeb.client"));
+//});
+
+builder.Services.AddAuthorization();
 
 
 
@@ -112,7 +112,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseCors("corsapp");
+//app.UseCors("corsapp");
+app.UseCors(config => config
+.AllowAnyOrigin()
+.AllowAnyHeader()
+.AllowAnyMethod());
 app.UseSerilogRequestLogging();
 app.UseHttpsRedirection();
 

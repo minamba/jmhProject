@@ -9,6 +9,7 @@
     "axios": "^1.2.2",
     "bootstrap": "^5.2.3",
     "bootstrap-icons": "^1.10.3",
+    "oidc-client": "^1.11.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.5",

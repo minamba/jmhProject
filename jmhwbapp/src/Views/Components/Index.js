@@ -5,7 +5,14 @@ import { Navbar } from "../../Components/index";
 import { Home } from "./Home";
 import { Characters } from "./Character";
 import { list } from "../../app/datas";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { HomeBase } from "./HomeBase";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Switch,
+} from "react-router-dom";
+import { Callback } from "./Callback";
 
 const App = () => {
   const userList = useSelector((state) => state.users);
@@ -20,7 +27,7 @@ const App = () => {
 
   //this fonction return filtered list when user write something in search field
   const filterResults = (input) => {
-    let fullLilst = userList; //normalement on l'utilise quand on a un tableau de tableaux
+    let fullLilst = list; //normalement on l'utilise quand on a un tableau de tableaux
     let result = fullLilst.filter((user) => {
       const lastName = user.lastName.toLowerCase();
       const term = input.toLowerCase();
@@ -31,7 +38,7 @@ const App = () => {
   };
 
   useEffect(() => {
-    dispatch(getUsersRequest());
+    //dispatch(getUsersRequest());
   });
   return (
     <Fragment>
@@ -39,11 +46,12 @@ const App = () => {
         <Navbar />
         {/*Routes*/}
         <Routes>
+          <Route path="/" element={<HomeBase />} />
           <Route
-            path="/"
+            path="/home"
             element={
               <Home
-                list={isFiltering ? listFiltered : userList}
+                list={isFiltering ? listFiltered : list}
                 loadMenuItem={loadMenuItem}
                 menuItem={menuItem}
                 filterResults={filterResults}
@@ -52,6 +60,7 @@ const App = () => {
             }
           />
           <Route path="/character" element={<Characters />} />
+          <Route path="/signin-oidc" element={<Callback />} />
         </Routes>
       </Router>
     </Fragment>

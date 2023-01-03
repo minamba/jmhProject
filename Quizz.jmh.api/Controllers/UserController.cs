@@ -26,7 +26,7 @@ namespace Quizz.jmh.api.Controllers
             _tokenService = tokenService;
         }
 
-        //[Authorize(AuthenticationSchemes = "Bearer", Policy = "ClientIdPolicy")]
+        [Authorize(AuthenticationSchemes = /*JwtBearerDefaults.AuthenticationScheme*/ "Bearer")]
         [HttpGet("/users")]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(UsersResponse), Description = "Retrieve list of all Users")]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(UsersResponseExample))]

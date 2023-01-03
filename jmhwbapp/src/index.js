@@ -8,7 +8,7 @@ import store from "./Lib/store";
 import axios from "axios";
 
 axios.defaults.withCredentials = false;
-axios.defaults.baseURL = "https://localhost:7067";
+axios.defaults.baseURL = "http://localhost:7067/";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
