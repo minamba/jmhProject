@@ -20,13 +20,14 @@ export const HomeBase = () => {
     mgr.getUser().then((user) => {
       if (user) {
         fetch("https://localhost:7067/users", {
-          Headers: {
-            Authorization: "Bearer" + user.access_token,
+          headers: {
+            Authorization: "Bearer " + user.access_token,
           },
         })
           .then((resp) => resp.json())
           .then((data) => setState({ user, data }));
       }
+      //console.log(user.access_token);
     });
   }, []);
 
