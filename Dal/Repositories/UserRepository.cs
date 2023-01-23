@@ -1,4 +1,5 @@
 ﻿using Google.Cloud.Firestore;
+using IdentityModel;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using Microsoft.AspNetCore.Identity;
 using Quizz.jmh.Dal.Dto;
@@ -8,6 +9,7 @@ using Quizz.jmh.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -60,13 +62,24 @@ namespace Quizz.jmh.Dal.Repositories
             var idenityUser = new IdentityUser()
             {
                 Email = user.Mail,
+                NormalizedEmail = user.Mail.ToUpper(),
                 UserName = user.Mail,
+                NormalizedUserName = user.Mail.ToUpper(),
+                EmailConfirmed = true
             };
 
-            IdentityResult result = await _userManager.CreateAsync(idenityUser, user.Password);
+                IdentityResult result = await _userManager.CreateAsync(idenityUser, user.Password);
 
-            if(result.Succeeded)
+
+            if (result.Succeeded)
             {
+                //Create basic user claim for all new user
+                await _userManager.AddClaimsAsync(idenityUser, new Claim[]
+                {
+                    new Claim(JwtClaimTypes.Email,idenityUser.UserName),
+                    new Claim(JwtClaimTypes.Role,"User"),
+                });
+
                 // Add firestore user
                 //CollectionReference coll = db.Collection("User"); //Add document with autoID
                 DocumentReference doc = db.Collection("User").Document(idenityUser.Id); //Add document with custom id
@@ -91,7 +104,7 @@ namespace Quizz.jmh.Dal.Repositories
                 userToReturn.Sexe = user.Sexe;
 
                 doc.SetAsync(data);
-           
+
                 return userToReturn.ToUser();
             }
             else

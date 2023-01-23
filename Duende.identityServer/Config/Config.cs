@@ -12,8 +12,8 @@ namespace Duende.Server.Config
             new IdentityResources.Profile(),
             new IdentityResource
             {
-                //Name = "role",
-                //UserClaims = new List<string> {"role"}
+                DisplayName = "Username",
+                UserClaims = new List<string> {"role", "Username" }
             }
             };
 
