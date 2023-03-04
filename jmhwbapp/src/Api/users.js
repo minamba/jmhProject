@@ -1,4 +1,12 @@
 import axios from "axios";
+import userManager from "../utils/UserManager";
+import React, { Fragment, useState } from "react";
+
+// const header = {
+//   headers: {
+//     Authorization: "Bearer" + user.access_token,
+//   },
+// };
 
 export const getUsers = () => {
   return axios.get("/users");

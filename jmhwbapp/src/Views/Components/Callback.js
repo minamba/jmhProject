@@ -8,3 +8,21 @@ export const Callback = () => {
   }, []);
   return <p>Loading...</p>;
 };
+
+// export const Callback = () => {
+//   useEffect(() => {
+//     <CallbackComponent
+//       userManager={userManagerConfig}
+//       successCallback={() => {
+//         this.props.dispatch(push("/"));
+//       }}
+//       errorCallback={(error) => {
+//         this.props.dispatch(push("/homeBase"));
+//         console.error(error);
+//       }}
+//     >
+//       <div>Redirecting...</div>
+//     </CallbackComponent>;
+//   }, []);
+//   return <p>Loading...</p>;
+// };

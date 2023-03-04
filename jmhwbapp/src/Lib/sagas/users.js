@@ -1,3 +1,4 @@
+import React, { Fragment, useState } from "react";
 import {
   takeEvery,
   takeLatest,
@@ -11,8 +12,9 @@ import * as api from "../../Api/users";
 
 function* getUsers() {
   try {
+    //debugger;
     const result = yield call(api.getUsers); //call est une promess, quoi qu'il arrive, quand il recevra une information il l'a mettre dans result
-    // debugger;
+    console.log("RESULT ::::::::::: " + result.data.users);
     yield put(actions.getUsersSuccess({ users: result.data.users }));
   } catch (e) {
     // debugger;
@@ -22,7 +24,6 @@ function* getUsers() {
       })
     );
   }
-  return true;
 }
 
 // function* createUser(action) {

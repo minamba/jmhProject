@@ -25,33 +25,34 @@ const App = () => {
     setMenuItem(i);
   };
 
+  useEffect(() => {
+    dispatch(getUsersRequest());
+  }, []);
+
   //this fonction return filtered list when user write something in search field
   const filterResults = (input) => {
-    let fullLilst = list; //normalement on l'utilise quand on a un tableau de tableaux
+    let fullLilst = userList; //normalement on l'utilise quand on a un tableau de tableaux
     let result = fullLilst.filter((user) => {
       const lastName = user.lastName.toLowerCase();
       const term = input.toLowerCase();
       return lastName.indexOf(term) > -1;
     });
     SetListFiltered(result);
-    console.log(result);
+    console.log("fock" + result);
   };
 
-  useEffect(() => {
-    //dispatch(getUsersRequest());
-  });
   return (
     <Fragment>
       <Router>
         <Navbar />
         {/*Routes*/}
         <Routes>
-          <Route path="/" element={<HomeBase />} />
+          {<Route path="/HomeBase" element={<HomeBase />} />}
           <Route
-            path="/home"
+            path="/"
             element={
               <Home
-                list={isFiltering ? listFiltered : list}
+                list={isFiltering ? listFiltered : userList}
                 loadMenuItem={loadMenuItem}
                 menuItem={menuItem}
                 filterResults={filterResults}
