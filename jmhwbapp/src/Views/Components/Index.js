@@ -38,7 +38,6 @@ const App = () => {
       return lastName.indexOf(term) > -1;
     });
     SetListFiltered(result);
-    console.log("fock" + result);
   };
 
   return (

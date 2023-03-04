@@ -11,13 +11,13 @@ import userManager from "./utils/UserManager";
 axios.defaults.withCredentials = false;
 axios.defaults.baseURL = "https://localhost:7067/";
 
-// userManager.getUser().then((user) => {
-//   if (user) {
-//     axios.defaults.headers.common["Authorization"] =
-//       "Bearer" + user.access_token; //Pour la recuperation du token
-//   }
-//   //console.log(user.access_token);
-// });
+userManager.getUser().then((user) => {
+  if (user) {
+    axios.defaults.headers.common["Authorization"] =
+      "Bearer " + user.access_token; //Pour la recuperation du token
+    console.log("mon token : " + user.access_token);
+  }
+});
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

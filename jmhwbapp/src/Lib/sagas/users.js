@@ -14,7 +14,6 @@ function* getUsers() {
   try {
     //debugger;
     const result = yield call(api.getUsers); //call est une promess, quoi qu'il arrive, quand il recevra une information il l'a mettre dans result
-    console.log("RESULT ::::::::::: " + result.data.users);
     yield put(actions.getUsersSuccess({ users: result.data.users }));
   } catch (e) {
     // debugger;

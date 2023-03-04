@@ -8,27 +8,12 @@ import { getUsersRequest, usersError } from "../../Lib/Actions/users";
 export const Home = (props) => {
   const { list, loadMenuItem, menuItem, filterResults, setIsFiltering } = props;
   const [state, setState] = useState(null);
-  // const userList = useSelector((state) => state.users);
+  const userList = useSelector((state) => state.users);
   const dispatch = useDispatch();
-
-  //   userManager.getUser().then((user) => {
-  //     if (user) {
-  //       fetch("https://localhost:7067/users", {
-  //         headers: {
-  //           Authorization: "Bearer " + user.access_token,
-  //         },
-  //       })
-  //         .then((resp) => resp.json())
-  //         .then((data) => setState({ user, data }));
-  //     }
-
-  // useEffect(() => {
-  //   dispatch(getUsersRequest());
-  // });
 
   return (
     <div className="container mt-5">
-      {list !== null ? (
+      {userList.length !== 0 ? (
         <>
           <div>
             <h1 className="align-center">
